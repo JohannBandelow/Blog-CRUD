@@ -5,6 +5,7 @@
 >>### Salvamento de senhas encriptografadas através do método Hash!  
 >>### Utilização do Bootstrap e do EJS para criar um front-end mais fácil  
 >>### Utilização de um middleware, para ter níveis de autorização de admnistrador.  
+>>### Esquema de paginação, mostrando um máximo de 4 artigos por página, tendo botões de navegação
 
 >## **Principais tecnologias:**  
 >>### Express  
