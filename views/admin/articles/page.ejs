@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogPress || Articles</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('../../partials/homenavbar')  %> 
+    
+    <div class="container">
+        <hr>
+        <hr>
+        <% result.articles.rows.forEach((article) => { %>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2><%= article.title  %> </h2>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-primary" href="/<%= article.slug  %>">Ler artigo</a>
+                </div>
+            </div>
+            <br>
+
+        <% }) %> 
+
+        <div class="row">
+            <div class="col col-12">
+                <% if(result.page > 2) {%> 
+                    <a style="float: left;" class="btn btn-success" href="/articles/page/<%= result.page - 1 %>">Previous page</a>
+                <%} else if(result.page == 2) {  %>
+                    <a style="float: left;" class="btn btn-success" href="/">Previous page</a>
+                <% } %> 
+                <% if(result.next) {%> 
+                    <a style="float: right;" class="btn btn-success" href="/articles/page/<%= result.page + 1 %> ">Next page</a>
+                <%}  %> 
+            </div>
+        </div>
+        
+    </div>
+
+
+</body>
+<%- include('../../partials/scripts')  %> 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogPress || Categories</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <%- include('../../partials/navbar'); %>
+    <div class="container">
+      <hr/>
+      <h2>Categorias:</h2>
+      <hr/>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Slug</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% categories.forEach((category) => { %>
+          <tr>
+            <th><%= category.id %></th>
+            <th><%= category.title %></th>
+            <th><%= category.slug %></th>
+            <th>
+              <a 
+                href="/admin/categories/edit/<%= category.id  %> " 
+                class="btn btn-warning"
+              >Editar</a>
+
+              <form 
+                action="/admin/categories/delete" 
+                method="POST" 
+                style="display: inline;" 
+                onsubmit="delComfirm(event, this)"
+              >
+
+                <input 
+                  type="hidden" 
+                  name="id" 
+                  value="<%= category.id %>"
+                >
+
+                <button class="btn btn-danger">Deletar</button>
+              </form>
+            </th>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <a href="/admin/categories/new" class="btn btn-success">Criar categoria!</a>
+    </div>
+  </body>
+  <script>
+    function delComfirm(event, form) {
+      event.preventDefault();
+      var decision = confirm("Você quer deletar essa categoria!");
+      if(decision){
+        form.submit();
+      }
+    }
+  </script>
+  <%- include('../../partials/scripts'); %>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>BlogPress || Login</title>
+</head>
+<body>
+    <div class="container">
+        <hr>
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>Fazer login</h2>
+            </div>
+            <div class="card-body">
+                <form action="/authenticate" method="POST">
+                <label>Email cadastrado:</label>
+                <input class="form-control" type="email" name="email" placeholder="email@exemplo.com">
+                <br>
+                <label>Senha cadastrada:</label>
+                <input type="password" name="password" class="form-control" placeholder="Senha">
+                <br>
+                <button type="submit" class="btn btn-success btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../../partials/scripts')  %> 
+</html>
